@@ -5,33 +5,28 @@
 function solution(toPrint, toRead) {
 
     const startAll = new Date();
-    const input = readline().split(' ');
-    const dice1 = parseInt(input[0]);
-    const dice2 = parseInt(input[1]);
 
-    log(`Parsed input dice 1: ${dice1} dice 2: ${dice2}`);
+    let input;
 
-    const results = {};
-    let maxProb = 0;
+    while(input = readline()) {
 
-    for (let i = 1; i <= dice1; i++)
-        for (let j = 1; j <= dice2; j++) {
-            const prob = (1 / dice1) + (1 / dice2);
-            const sum = i + j;
+        log(`read ${input}`);
 
-            results[sum] = (results[sum] || 0) + prob;
+        const match = input.match(/0[xX][\da-fA-F]+/g);
+
+        if(match) {
+            match
+                .forEach((m) => {
+
+                    const dec = parseInt(m, 16);
+                    log(`m is ${m} dec is ${dec}, dec.toString(16).toLowerCase(): ${dec.toString(16).toLowerCase()}`)
+
+                    if('0x' + dec.toString(16).toLowerCase() === m.toLowerCase()) {
+                        print(`${m} ${dec}`);
+                    }
+                });
         }
-
-    let sums = [];
-
-    Object.keys(results).forEach((o) => sums.push({prob: results[o], sum: o}));
-
-    sums = sums.sort((a, b) => b.prob - a.prob);
-    const max = sums[0].prob;
-
-    //log(sums);
-
-    sums.filter(s => s.prob == max).sort((a, b) => a.sum - b.sum).forEach(s => print(s.sum));
+    }
 
     log(`Solved ALL in ${new Date() - startAll}`);
 }

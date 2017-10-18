@@ -30,24 +30,11 @@ describe('Solution', function () {
 
         [
             {
-                input: ['6 6'],
-                result: [7]
+                input: ['ashasdkhaskdhadkshakjsdhkjh 0xXkashdkjh kjdashkjhasd aksjdhakjsdhaksjdhk'],
+                result: []
             }, {
-                input: ['6 4'],
-                result: ['5', '6', '7']
-            }, {
-                input: ['12 20'],
-                result: [
-                    '13',
-                    '14',
-                    '15',
-                    '16',
-                    '17',
-                    '18',
-                    '19',
-                    '20',
-                    '21'
-                ]
+                input: ['asdasd0xffffffffZffffffffasdasdasdasd'],
+                result: ['0xffffffff 4294967295']
             }
         ].forEach((testCase) => {
 
