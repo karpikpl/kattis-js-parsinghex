@@ -30,11 +30,17 @@ describe('Solution', function () {
 
         [
             {
-                input: ['ashasdkhaskdhadkshakjsdhkjh 0xXkashdkjh kjdashkjhasd aksjdhakjsdhaksjdhk'],
+                input: ['ashasdkhaskdhadkshakjsdhkjh 0xXkashdkjh kjdashkjhasd aksjdhakjsdhaksjdhk',NaN, 0, '', undefined],
                 result: []
             }, {
-                input: ['asdasd0xffffffffZffffffffasdasdasdasd'],
+                input: ['asdasd0xffffffffZffffffffasdasdasdasd', null],
                 result: ['0xffffffff 4294967295']
+            },
+            {
+                input: ['ashasdkhaskdhadkshakjsdhkjh 0xXkashdkjh kjdashkjhasd aksjdhakjsdhaksjdhk',
+                        ' ',
+                        '0Xx0x0x0x0x0xffffffffJffffff00000121212686781631318761723'],
+                result: ['0x0 0', '0x0 0', '0xffffffff 4294967295']
             }
         ].forEach((testCase) => {
 

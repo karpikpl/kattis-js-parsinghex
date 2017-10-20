@@ -6,25 +6,22 @@ function solution(toPrint, toRead) {
 
     const startAll = new Date();
 
-    let input;
+    while(true) {
 
-    while(input = readline()) {
+        const input = readline();
+        if (typeof input === 'undefined' || input === null) {
+            break;
+        }
+
+        if (typeof input !== 'string')
+            continue;
 
         log(`read ${input}`);
 
         const match = input.match(/0[xX][\da-fA-F]+/g);
 
-        if(match) {
-            match
-                .forEach((m) => {
-
-                    const dec = parseInt(m, 16);
-                    log(`m is ${m} dec is ${dec}, dec.toString(16).toLowerCase(): ${dec.toString(16).toLowerCase()}`)
-
-                    if('0x' + dec.toString(16).toLowerCase() === m.toLowerCase()) {
-                        print(`${m} ${dec}`);
-                    }
-                });
+        if (match) {
+            match.forEach((m) => print(`${m} ${parseInt(m, 16)}`));
         }
     }
 
