@@ -1,4 +1,4 @@
-# About
+# About [![Build Status](https://travis-ci.org/karpikpl/kattis-js-parsinghex.svg?branch=master)](https://travis-ci.org/karpikpl/kattis-js-parsinghex)
 ES2016 wrapper for https://open.kattis.com/ platform.
 
 ## Usage
